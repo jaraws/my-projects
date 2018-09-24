@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-configuration PUBLIC  
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"  
+          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.url">jdbc:mysql://localhost:3306/school</property>
+		<property name="connection.username">test</property>
+		<property name="connection.password">test</property>
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+
+		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+		<!-- IF to Drop and recreate the schema on application startup -->
+		<property name="hbm2ddl.auto">create</property>
+		<!-- echo all executed sqls -->
+		<property name="hibernate.show_sql">true</property>
+		
+		<!-- List of mapping files -->
+		<!-- Since, its an annotation based application. It's not required to create 
+			 the Hibernate mapping file with all persistence information related to the 
+			 entity class. 
+			 Here, we are only providing the mapping class having persistence information 
+			 provided through annotations otherwise this would have been provided by means
+			 of a Hibernate Mapping File i.e. .hbm.xml file. 
+			 -->
+		<mapping class="jaraws.hibernate.model.UserDetails" />
+
+	</session-factory>
+</hibernate-configuration> 

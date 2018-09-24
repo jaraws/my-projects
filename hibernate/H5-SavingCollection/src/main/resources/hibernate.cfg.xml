@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-configuration PUBLIC  
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"  
+          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.url">jdbc:mysql://localhost:3306/test</property>
+		<property name="connection.username">test</property>
+		<property name="connection.password">test</property>
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+
+		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+		<!-- IF to Drop and recreate the schema on application startup -->
+		<property name="hbm2ddl.auto">create</property>
+		<!-- echo all executed sqls -->
+		<property name="hibernate.show_sql">true</property>
+		<!-- Defining the schema name is considered as good otherwise some JPA implementations
+			 uses a defualt schema name and it at times becomes difficult to debug -->
+		<property name="hibernate.default_schema">test</property>
+		
+		<!-- List of mapping files -->
+		<!-- Since, its an annotation based application. It's not required to create 
+			the mapping file with all persistence information related to the entity class. 
+			Here, we shall be providing the mapping class only having persistence information 
+			provided through annotations -->
+		<!-- NOT REQUIRED HERE: <mapping resource="student.hbm.xml" /> -->
+		<mapping class="jaraws.hibernate.model.Student" />
+		<mapping class="jaraws.hibernate.model.Address" />
+
+	</session-factory>
+</hibernate-configuration> 
