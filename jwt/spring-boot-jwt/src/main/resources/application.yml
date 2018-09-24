@@ -1,0 +1,12 @@
+# enable spring security
+management:
+  security:
+    enabled: true
+
+# enable resources/filter chain
+spring:
+  resources:
+    chain:
+      enabled: true
+  application:
+    name: jwt-token-generator
