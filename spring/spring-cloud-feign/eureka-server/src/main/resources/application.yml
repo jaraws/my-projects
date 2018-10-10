@@ -1,0 +1,22 @@
+---
+## This profile is used when running a single instance completely standalone
+## When no profile is active, it will fall back to this default profile
+
+spring:
+  profiles: default
+  application:
+    name: eureka-server
+server:
+  port: 8010
+
+eureka:
+  instance:
+    hostname: eureka
+  client:
+    registerWithEureka: false 
+    # telling the server not to register itself with its own service registry
+    fetchRegistry: false
+  server:
+    enableSelfPreservation: true
+  
+    
